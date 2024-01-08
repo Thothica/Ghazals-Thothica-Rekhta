@@ -22,7 +22,7 @@ def create_retriever():
 
 st.title('Thothica Rekhta Ghazal Search')
 
-query = st.text_input(label = 'Please enter your query - ', value = 'Shayari about gifting')
+query = st.text_input(label = 'Please enter your query - ', value = 'fight against god')
 top_k = st.number_input(label = 'Top k - ', min_value = 2, max_value = 25, value = 5)
 
 retriever = create_retriever()
