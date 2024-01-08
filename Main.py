@@ -46,14 +46,28 @@ if query and top_k:
     
     with col2:
         summary = st.empty()
-        top3 = ""
+        top3 = []
+        top3_couplet = []
         for i in response:
-             top3 += i["Text"] + "\n"
+             top3.append(i["Text"])
+             top3_couplet.append(i["Content_Ur"])
         temp_summary = []
         for resp in client.chat.completions.create(model = "gpt-4",
             messages = [
-                    {"role": "system", "content": "You are an eloquent Ghazal artist."},
-                    {"role": "user", "content": f"You will be given three top ghazals based on a prompt summarise them to make an answer \n\nGhazals-{top3}\n\nPrompt-{query}"},
+                    {"role": "system", "content": "Act as a Shayari Interpretation Summarizer GPT. The GPT's primary role is to provide succinct summaries of interpretations of Urdu couplets in relation to the user's queries, focusing on the context of the question and providing insights about the poet and the poem. It will deliver detailed responses, aiming for around 500 words, to enrich the user's understanding. Integrated into Rekhta's website, the GPT will avoid lengthy literary critiques or personal opinions. It will make an informed guess when the query is ambiguous or the couplet is particularly complex, ensuring accurate and informative responses while maintaining a respectful tone, reflective of Urdu poetry's literary and cultural richness. It won't ask user for clarification so as to give a seamless experience."},
+                    {"role": "user", "content": f"""Summarize the following interpretation of couplets in context of the query “{query}”:
+
+{top3_couplet[0]}
+Interpretation 1:
+{top3[0]}
+
+{top3_couplet[1]}
+Interpretation 2:
+{top3[1]}
+
+{top3_couplet[2]}
+Interpretation 3:
+{top3[2]}"""},
                 ],
             stream = True):
                 if resp.choices[0].finish_reason == "stop":
