@@ -1,3 +1,5 @@
+llama-index
+langchain
 openai
 streamlit
-llama-index
+faiss-cpu
