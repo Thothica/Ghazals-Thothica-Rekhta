@@ -33,13 +33,13 @@ if query and top_k:
         response = []
         for i in retriever.retrieve(query):
             response.append({
+                    'Content_Ur' : i.node.metadata['Content_Ur'],
+                    'Name_Ur' : i.node.metadata['Name_Ur'],
                     'Text' : i.get_text(),
                     'Score' : i.get_score(),
                     'Name_En' : i.node.metadata['Name_En'],
-                    'Name_Ur' : i.node.metadata['Name_Ur'],
                     'Name_Hi' : i.node.metadata['Name_Hi'],
                     'Content_En' : i.node.metadata['Content_En'],
-                    'Content_Ur' : i.node.metadata['Content_Ur'],
                     'Content_Hi' : i.node.metadata['Content_Hi'],
                 })
         st.json(response)
