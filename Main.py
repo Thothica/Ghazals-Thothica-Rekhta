@@ -35,12 +35,12 @@ if query and top_k:
             response.append({
                     'Content_Ur' : i.node.metadata['Content_Ur'],
                     'Name_Ur' : i.node.metadata['Name_Ur'],
-                    'Text' : i.get_text(),
-                    'Score' : i.get_score(),
-                    'Name_En' : i.node.metadata['Name_En'],
+                    'Content_Hi' : i.node.metadata['Content_Hi'],
                     'Name_Hi' : i.node.metadata['Name_Hi'],
                     'Content_En' : i.node.metadata['Content_En'],
-                    'Content_Hi' : i.node.metadata['Content_Hi'],
+                    'Name_En' : i.node.metadata['Name_En'],
+                    'Text' : i.get_text(),
+                    'Score' : i.get_score(),
                 })
         st.json(response)
     
