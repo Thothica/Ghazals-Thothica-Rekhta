@@ -1,9 +1,9 @@
 import streamlit as st
 import os
-from llama_index import load_index_from_storage, StorageContext
 from llama_index.vector_stores.faiss import FaissVectorStore
-from llama_index.storage.docstore import SimpleDocumentStore
-from llama_index.storage.index_store import SimpleIndexStore
+from llama_index.core import load_index_from_storage, StorageContext
+from llama_index.core.storage.docstore import SimpleDocumentStore
+from llama_index.core.storage.index_store import SimpleIndexStore
 from openai import OpenAI
 
 st.set_page_config(layout = "wide")
