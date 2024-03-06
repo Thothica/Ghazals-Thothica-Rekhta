@@ -3,3 +3,4 @@ langchain
 openai
 streamlit
 faiss-cpu
+llama-index-vector-stores-faiss
